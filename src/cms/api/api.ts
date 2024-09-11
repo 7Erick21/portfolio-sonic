@@ -41,7 +41,8 @@ tables.forEach((entry) => {
   //ie /v1/users
   api.get(`/${entry.route}`, async (ctx) => {
     const start = Date.now();
-    const query = ctx.req.url.indexOf('?') > 0 ? ctx.req.url.split('?')[1] : ctx.req.url;
+    const query =
+      ctx.req.url.indexOf('?') > 0 ? ctx.req.url.split('?')[1] : ctx.req.url;
     const params = qs.parse(query, { duplicates: 'combine' });
 
     if (entry.hooks?.beforeOperation) {

@@ -5,6 +5,8 @@ import * as categories from './schema/categories';
 import * as categoriesToPosts from './schema/categoriesToPosts';
 import * as userKeys from './schema/userKeys';
 import * as userSessions from './schema/userSessions';
+import * as languages from './schema/languages';
+import * as educations from './schema/educations';
 
 import { AppContext } from '../server';
 import { isAdminOrEditor } from './config-helpers';
@@ -198,7 +200,9 @@ export const tableSchemas = {
   categories,
   categoriesToPosts,
   userKeys,
-  userSessions
+  userSessions,
+  languages,
+  educations
 };
 
 for (const key of Object.keys(tableSchemas)) {
