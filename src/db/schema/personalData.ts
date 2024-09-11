@@ -1,15 +1,24 @@
-import { customType, index, sqliteTable, text } from 'drizzle-orm/sqlite-core';
+import { customType, sqliteTable, text } from 'drizzle-orm/sqlite-core';
 import { relations } from 'drizzle-orm';
 import { auditSchema } from './audit';
 import { ApiConfig } from '../routes';
 import { isAdminOrUser } from '../config-helpers';
 import * as languages from './languages';
 
-export const tableName = 'educations';
+export const tableName = 'personalData';
 
-export const route = 'educations';
+export const route = 'personal-data';
 
-const jsonType = customType<{ data: object; driverData: string }>({
+interface IPersonalData {
+  label: string;
+  value: string;
+  icon: string;
+}
+
+const customPersonalDataType = customType<{
+  data: IPersonalData;
+  driverData: string;
+}>({
   dataType() {
     return 'json';
   },
@@ -23,10 +32,13 @@ const jsonType = customType<{ data: object; driverData: string }>({
 
 export const definition = {
   id: text('id').primaryKey(),
-  institution: text('institution'),
-  description: text('description'),
-  startDate: text('startDate'),
-  endDate: text('endDate'),
+  firstName: text('firstName'),
+  lastName: text('lastName'),
+  profession: text('profession'),
+  email: customPersonalDataType('email'),
+  happyBirthday: customPersonalDataType('happyBirthday'),
+  location: customPersonalDataType('location'),
+  redesSociales: text('redesSociales'),
   code: text('code').notNull()
 };
 
@@ -54,7 +66,7 @@ export const access: ApiConfig['access'] = {
 export const hooks: ApiConfig['hooks'] = {};
 
 export const fields: ApiConfig['fields'] = {
-  description: {
+  redesSociales: {
     type: 'string[]'
   }
 };

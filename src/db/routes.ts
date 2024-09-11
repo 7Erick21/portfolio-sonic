@@ -7,6 +7,12 @@ import * as userKeys from './schema/userKeys';
 import * as userSessions from './schema/userSessions';
 import * as languages from './schema/languages';
 import * as educations from './schema/educations';
+import * as experiences from './schema/experiences';
+import * as about from './schema/about';
+import * as recommendations from './schema/recommendations';
+import * as navbar from './schema/navbar';
+import * as personalData from './schema/personalData';
+import * as technologies from './schema/technologies';
 
 import { AppContext } from '../server';
 import { isAdminOrEditor } from './config-helpers';
@@ -202,7 +208,13 @@ export const tableSchemas = {
   userKeys,
   userSessions,
   languages,
-  educations
+  educations,
+  experiences,
+  about,
+  recommendations,
+  navbar,
+  personalData,
+  technologies
 };
 
 for (const key of Object.keys(tableSchemas)) {

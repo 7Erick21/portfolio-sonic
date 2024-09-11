@@ -1,32 +1,18 @@
-import { customType, index, sqliteTable, text } from 'drizzle-orm/sqlite-core';
+import { sqliteTable, text } from 'drizzle-orm/sqlite-core';
 import { relations } from 'drizzle-orm';
 import { auditSchema } from './audit';
 import { ApiConfig } from '../routes';
 import { isAdminOrUser } from '../config-helpers';
 import * as languages from './languages';
 
-export const tableName = 'educations';
+export const tableName = 'technologies';
 
-export const route = 'educations';
-
-const jsonType = customType<{ data: object; driverData: string }>({
-  dataType() {
-    return 'json';
-  },
-  toDriver(value) {
-    return JSON.stringify(value);
-  },
-  fromDriver(value) {
-    return JSON.parse(value);
-  }
-});
+export const route = 'technologies';
 
 export const definition = {
   id: text('id').primaryKey(),
-  institution: text('institution'),
-  description: text('description'),
-  startDate: text('startDate'),
-  endDate: text('endDate'),
+  label: text('label'),
+  image: text('image'),
   code: text('code').notNull()
 };
 
@@ -54,7 +40,9 @@ export const access: ApiConfig['access'] = {
 export const hooks: ApiConfig['hooks'] = {};
 
 export const fields: ApiConfig['fields'] = {
-  description: {
-    type: 'string[]'
+  image: {
+    type: 'file',
+    bucket: (ctx) => ctx.env.R2STORAGE,
+    path: 'images'
   }
 };

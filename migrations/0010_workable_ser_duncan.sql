@@ -1,1 +1,0 @@
-ALTER TABLE educations ADD `code` text;
