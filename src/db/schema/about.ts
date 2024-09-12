@@ -12,7 +12,7 @@ export const route = 'about';
 export const definition = {
   id: text('id').primaryKey(),
   label: text('label'),
-  description: text('description'),
+  description: text('description', { mode: 'json' }).$type<string[]>(),
   code: text('code').notNull()
 };
 

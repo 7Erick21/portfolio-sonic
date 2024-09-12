@@ -38,7 +38,7 @@ export const definition = {
   email: customPersonalDataType('email'),
   happyBirthday: customPersonalDataType('happyBirthday'),
   location: customPersonalDataType('location'),
-  redesSociales: text('redesSociales'),
+  redesSociales: text('redesSociales', { mode: 'json' }).$type<string[]>(),
   code: text('code').notNull()
 };
 

@@ -24,7 +24,7 @@ const jsonType = customType<{ data: object; driverData: string }>({
 export const definition = {
   id: text('id').primaryKey(),
   institution: text('institution'),
-  description: text('description'),
+  description: text('description', { mode: 'json' }).$type<string[]>(),
   startDate: text('startDate'),
   endDate: text('endDate'),
   code: text('code').notNull()

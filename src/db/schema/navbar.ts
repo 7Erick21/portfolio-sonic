@@ -13,7 +13,8 @@ export const definition = {
   id: text('id').primaryKey(),
   label: text('label'),
   path: text('path'),
-  enpoits: text('enpoits'),
+  enpoits: text('enpoits', { mode: 'json' }).$type<string[]>(),
+  slug: text('slug').notNull(),
   code: text('code').notNull()
 };
 
