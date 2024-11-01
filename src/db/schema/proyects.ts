@@ -5,16 +5,17 @@ import { ApiConfig } from '../routes';
 import { isAdminOrUser } from '../config-helpers';
 import * as languages from './languages';
 
-export const tableName = 'navbar';
+export const tableName = 'proyects';
 
-export const route = 'navbar';
+export const route = 'proyects';
 
 export const definition = {
   id: text('id').primaryKey(),
-  label: text('label'),
-  path: text('path'),
-  enpoits: text('enpoits', { mode: 'json' }).$type<string[]>(),
-  slug: text('slug'),
+  title: text('title'),
+  description: text('description', { mode: 'json' }).$type<string[]>(),
+  technologies: text('technologies', { mode: 'json' }).$type<string[]>(),
+  preview: text('preview'),
+  image: text('image'),
   code: text('code')
 };
 
@@ -42,7 +43,15 @@ export const access: ApiConfig['access'] = {
 export const hooks: ApiConfig['hooks'] = {};
 
 export const fields: ApiConfig['fields'] = {
-  enpoits: {
+  description: {
     type: 'string[]'
+  },
+  technologies: {
+    type: 'string[]'
+  },
+  image: {
+    type: 'file',
+    bucket: (ctx) => ctx.env.R2STORAGE,
+    path: 'images'
   }
 };

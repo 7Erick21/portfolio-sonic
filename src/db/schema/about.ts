@@ -1,4 +1,4 @@
-import { sqliteTable, text } from 'drizzle-orm/sqlite-core';
+import { index, integer, sqliteTable, text } from 'drizzle-orm/sqlite-core';
 import { relations } from 'drizzle-orm';
 import { auditSchema } from './audit';
 import { ApiConfig } from '../routes';
@@ -13,7 +13,12 @@ export const definition = {
   id: text('id').primaryKey(),
   label: text('label'),
   description: text('description', { mode: 'json' }).$type<string[]>(),
-  code: text('code').notNull()
+  name: text('name'),
+  email: text('email'),
+  rol: text('rol'),
+  birthdate: text('birthdate'),
+  phone: text('phone'),
+  code: text('code')
 };
 
 export const table = sqliteTable(tableName, {

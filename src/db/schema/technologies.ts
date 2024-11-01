@@ -12,8 +12,7 @@ export const route = 'technologies';
 export const definition = {
   id: text('id').primaryKey(),
   label: text('label'),
-  image: text('image'),
-  code: text('code').notNull()
+  icon: text('icon')
 };
 
 export const table = sqliteTable(tableName, {
@@ -21,12 +20,7 @@ export const table = sqliteTable(tableName, {
   ...auditSchema
 });
 
-export const relation = relations(table, ({ one }) => ({
-  language: one(languages.table, {
-    fields: [table.code],
-    references: [languages.table.code]
-  })
-}));
+export const relation = relations(table, () => ({}));
 
 export const access: ApiConfig['access'] = {
   operation: {
@@ -40,7 +34,7 @@ export const access: ApiConfig['access'] = {
 export const hooks: ApiConfig['hooks'] = {};
 
 export const fields: ApiConfig['fields'] = {
-  image: {
+  icon: {
     type: 'file',
     bucket: (ctx) => ctx.env.R2STORAGE,
     path: 'images'

@@ -12,10 +12,11 @@ export const route = 'experiences';
 export const definition = {
   id: text('id').primaryKey(),
   company: text('company'),
-  description: text('description'),
+  description: text('description', { mode: 'json' }).$type<string[]>(),
   startDate: text('startDate'),
   endDate: text('endDate'),
-  code: text('code').notNull()
+  code: text('code'),
+  technologies: text('technologies', { mode: 'json' }).$type<string[]>()
 };
 
 export const table = sqliteTable(tableName, {
@@ -41,4 +42,11 @@ export const access: ApiConfig['access'] = {
 
 export const hooks: ApiConfig['hooks'] = {};
 
-export const fields: ApiConfig['fields'] = {};
+export const fields: ApiConfig['fields'] = {
+  description: {
+    type: 'string[]'
+  },
+  technologies: {
+    type: 'string[]'
+  }
+};

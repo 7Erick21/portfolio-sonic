@@ -1,4 +1,4 @@
-import { customType, index, sqliteTable, text } from 'drizzle-orm/sqlite-core';
+import { sqliteTable, text } from 'drizzle-orm/sqlite-core';
 import { relations } from 'drizzle-orm';
 import { auditSchema } from './audit';
 import { ApiConfig } from '../routes';
@@ -9,25 +9,13 @@ export const tableName = 'educations';
 
 export const route = 'educations';
 
-const jsonType = customType<{ data: object; driverData: string }>({
-  dataType() {
-    return 'json';
-  },
-  toDriver(value) {
-    return JSON.stringify(value);
-  },
-  fromDriver(value) {
-    return JSON.parse(value);
-  }
-});
-
 export const definition = {
   id: text('id').primaryKey(),
   institution: text('institution'),
   description: text('description', { mode: 'json' }).$type<string[]>(),
   startDate: text('startDate'),
   endDate: text('endDate'),
-  code: text('code').notNull()
+  code: text('code')
 };
 
 export const table = sqliteTable(tableName, {

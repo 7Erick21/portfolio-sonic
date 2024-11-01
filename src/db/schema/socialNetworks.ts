@@ -5,17 +5,16 @@ import { ApiConfig } from '../routes';
 import { isAdminOrUser } from '../config-helpers';
 import * as languages from './languages';
 
-export const tableName = 'navbar';
+export const tableName = 'social-networks';
 
-export const route = 'navbar';
+export const route = 'social-networks';
 
 export const definition = {
   id: text('id').primaryKey(),
-  label: text('label'),
-  path: text('path'),
-  enpoits: text('enpoits', { mode: 'json' }).$type<string[]>(),
-  slug: text('slug'),
-  code: text('code')
+  name: text('name'),
+  icon: text('icon'),
+  code: text('code'),
+  link: text('link')
 };
 
 export const table = sqliteTable(tableName, {
@@ -42,7 +41,9 @@ export const access: ApiConfig['access'] = {
 export const hooks: ApiConfig['hooks'] = {};
 
 export const fields: ApiConfig['fields'] = {
-  enpoits: {
-    type: 'string[]'
+  icon: {
+    type: 'file',
+    bucket: (ctx) => ctx.env.R2STORAGE,
+    path: 'images'
   }
 };

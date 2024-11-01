@@ -12,9 +12,10 @@ export const route = 'recommendations';
 export const definition = {
   id: text('id').primaryKey(),
   name: text('name'),
-  description: text('description'),
+  description: text('description', { mode: 'json' }).$type<string[]>(),
   image: text('image'),
-  code: text('code').notNull()
+  code: text('code'),
+  date: text('date')
 };
 
 export const table = sqliteTable(tableName, {
@@ -45,5 +46,8 @@ export const fields: ApiConfig['fields'] = {
     type: 'file',
     bucket: (ctx) => ctx.env.R2STORAGE,
     path: 'images'
+  },
+  description: {
+    type: 'string[]'
   }
 };

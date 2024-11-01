@@ -1,5 +1,5 @@
 import * as users from './schema/users';
-import * as posts from './schema/posts';
+import * as proyects from './schema/proyects';
 import * as comments from './schema/comments';
 import * as categories from './schema/categories';
 import * as categoriesToPosts from './schema/categoriesToPosts';
@@ -11,8 +11,8 @@ import * as experiences from './schema/experiences';
 import * as about from './schema/about';
 import * as recommendations from './schema/recommendations';
 import * as navbar from './schema/navbar';
-import * as personalData from './schema/personalData';
 import * as technologies from './schema/technologies';
+import * as socialNetworks from './schema/socialNetworks';
 
 import { AppContext } from '../server';
 import { isAdminOrEditor } from './config-helpers';
@@ -200,11 +200,11 @@ export interface ApiConfig {
 export const apiConfig: ApiConfig[] = [];
 
 export const tableSchemas = {
+  // posts,
+  // comments,
+  // categories,
+  // categoriesToPosts,
   users,
-  posts,
-  comments,
-  categories,
-  categoriesToPosts,
   userKeys,
   userSessions,
   languages,
@@ -212,9 +212,10 @@ export const tableSchemas = {
   experiences,
   about,
   recommendations,
+  socialNetworks,
   navbar,
-  personalData,
-  technologies
+  technologies,
+  proyects
 };
 
 for (const key of Object.keys(tableSchemas)) {

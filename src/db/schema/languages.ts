@@ -3,6 +3,11 @@ import { relations } from 'drizzle-orm';
 import { auditSchema } from './audit';
 import { ApiConfig } from '../routes';
 import { isAdminOrUser } from '../config-helpers';
+import * as about from './about';
+import * as navbar from './navbar';
+import * as recommendations from './recommendations';
+import * as experiences from './experiences';
+import * as socialNetworks from './socialNetworks';
 import * as educations from './educations';
 
 export const tableName = 'languages';
@@ -21,7 +26,12 @@ export const table = sqliteTable(tableName, {
 });
 
 export const relation = relations(table, ({ many }) => ({
-  educations: many(educations.table)
+  educations: many(educations.table),
+  about: many(about.table),
+  navbar: many(navbar.table),
+  experiences: many(experiences.table),
+  recommendations: many(recommendations.table),
+  socialNetworks: many(socialNetworks.table)
 }));
 
 export const access: ApiConfig['access'] = {

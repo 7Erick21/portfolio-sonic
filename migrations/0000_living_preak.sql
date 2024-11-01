@@ -2,7 +2,12 @@ CREATE TABLE `about` (
 	`id` text PRIMARY KEY NOT NULL,
 	`label` text,
 	`description` text,
-	`code` text NOT NULL,
+	`name` text,
+	`email` text,
+	`rol` text,
+	`birthdate` text,
+	`phone` text,
+	`code` text,
 	`createdOn` integer,
 	`updatedOn` integer
 );
@@ -42,7 +47,7 @@ CREATE TABLE `educations` (
 	`description` text,
 	`startDate` text,
 	`endDate` text,
-	`code` text NOT NULL,
+	`code` text,
 	`createdOn` integer,
 	`updatedOn` integer
 );
@@ -53,7 +58,8 @@ CREATE TABLE `experiences` (
 	`description` text,
 	`startDate` text,
 	`endDate` text,
-	`code` text NOT NULL,
+	`code` text,
+	`technologies` text,
 	`createdOn` integer,
 	`updatedOn` integer
 );
@@ -71,22 +77,8 @@ CREATE TABLE `navbar` (
 	`label` text,
 	`path` text,
 	`enpoits` text,
-	`slug` text NOT NULL,
-	`code` text NOT NULL,
-	`createdOn` integer,
-	`updatedOn` integer
-);
---> statement-breakpoint
-CREATE TABLE `personalData` (
-	`id` text PRIMARY KEY NOT NULL,
-	`firstName` text,
-	`lastName` text,
-	`profession` text,
-	`email` json,
-	`happyBirthday` json,
-	`location` json,
-	`redesSociales` text,
-	`code` text NOT NULL,
+	`slug` text,
+	`code` text,
 	`createdOn` integer,
 	`updatedOn` integer
 );
@@ -103,12 +95,35 @@ CREATE TABLE `posts` (
 	`updatedOn` integer
 );
 --> statement-breakpoint
+CREATE TABLE `proyects` (
+	`id` text PRIMARY KEY NOT NULL,
+	`title` text,
+	`description` text,
+	`technologies` text,
+	`preview` text,
+	`image` text,
+	`code` text NOT NULL,
+	`createdOn` integer,
+	`updatedOn` integer
+);
+--> statement-breakpoint
 CREATE TABLE `recommendations` (
 	`id` text PRIMARY KEY NOT NULL,
 	`name` text,
 	`description` text,
 	`image` text,
-	`code` text NOT NULL,
+	`code` text,
+	`date` text,
+	`createdOn` integer,
+	`updatedOn` integer
+);
+--> statement-breakpoint
+CREATE TABLE `social-networks` (
+	`id` text PRIMARY KEY NOT NULL,
+	`name` text,
+	`icon` text,
+	`code` text,
+	`link` text,
 	`createdOn` integer,
 	`updatedOn` integer
 );
@@ -116,8 +131,7 @@ CREATE TABLE `recommendations` (
 CREATE TABLE `technologies` (
 	`id` text PRIMARY KEY NOT NULL,
 	`label` text,
-	`image` text,
-	`code` text NOT NULL,
+	`icon` text,
 	`createdOn` integer,
 	`updatedOn` integer
 );
