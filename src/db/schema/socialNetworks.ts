@@ -5,9 +5,9 @@ import { ApiConfig } from '../routes';
 import { isAdminOrUser } from '../config-helpers';
 import * as languages from './languages';
 
-export const tableName = 'social-networks';
+export const tableName = 'socialNetworks';
 
-export const route = 'social-networks';
+export const route = 'socialNetworks';
 
 export const definition = {
   id: text('id').primaryKey(),

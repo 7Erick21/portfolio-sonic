@@ -64,6 +64,15 @@ CREATE TABLE `experiences` (
 	`updatedOn` integer
 );
 --> statement-breakpoint
+CREATE TABLE `groupTechnologies` (
+	`id` text PRIMARY KEY NOT NULL,
+	`name` text,
+	`technologies` text,
+	`code` text,
+	`createdOn` integer,
+	`updatedOn` integer
+);
+--> statement-breakpoint
 CREATE TABLE `languages` (
 	`id` text PRIMARY KEY NOT NULL,
 	`language` text,
@@ -102,7 +111,7 @@ CREATE TABLE `proyects` (
 	`technologies` text,
 	`preview` text,
 	`image` text,
-	`code` text NOT NULL,
+	`code` text,
 	`createdOn` integer,
 	`updatedOn` integer
 );
@@ -118,7 +127,7 @@ CREATE TABLE `recommendations` (
 	`updatedOn` integer
 );
 --> statement-breakpoint
-CREATE TABLE `social-networks` (
+CREATE TABLE `socialNetworks` (
 	`id` text PRIMARY KEY NOT NULL,
 	`name` text,
 	`icon` text,

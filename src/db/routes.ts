@@ -1,12 +1,10 @@
 import * as users from './schema/users';
 import * as proyects from './schema/proyects';
-import * as comments from './schema/comments';
-import * as categories from './schema/categories';
-import * as categoriesToPosts from './schema/categoriesToPosts';
 import * as userKeys from './schema/userKeys';
 import * as userSessions from './schema/userSessions';
 import * as languages from './schema/languages';
 import * as educations from './schema/educations';
+import * as groupTechnologies from './schema/groupTechnologies';
 import * as experiences from './schema/experiences';
 import * as about from './schema/about';
 import * as recommendations from './schema/recommendations';
@@ -213,6 +211,7 @@ export const tableSchemas = {
   about,
   recommendations,
   socialNetworks,
+  groupTechnologies,
   navbar,
   technologies,
   proyects

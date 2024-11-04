@@ -3,15 +3,17 @@ import { relations } from 'drizzle-orm';
 import { auditSchema } from './audit';
 import { ApiConfig } from '../routes';
 import { isAdminOrUser } from '../config-helpers';
+import * as languages from './languages';
 
-export const tableName = 'technologies';
+export const tableName = 'groupTechnologies';
 
-export const route = 'technologies';
+export const route = 'groupTechnologies';
 
 export const definition = {
   id: text('id').primaryKey(),
-  label: text('label'),
-  icon: text('icon')
+  name: text('name'),
+  technologies: text('technologies', { mode: 'json' }).$type<string[]>(),
+  code: text('code')
 };
 
 export const table = sqliteTable(tableName, {
@@ -19,7 +21,12 @@ export const table = sqliteTable(tableName, {
   ...auditSchema
 });
 
-export const relation = relations(table, () => ({}));
+export const relation = relations(table, ({ one }) => ({
+  language: one(languages.table, {
+    fields: [table.code],
+    references: [languages.table.code]
+  })
+}));
 
 export const access: ApiConfig['access'] = {
   operation: {
@@ -33,9 +40,7 @@ export const access: ApiConfig['access'] = {
 export const hooks: ApiConfig['hooks'] = {};
 
 export const fields: ApiConfig['fields'] = {
-  icon: {
-    type: 'file',
-    bucket: (ctx) => ctx.env.R2STORAGE,
-    path: 'images'
+  technologies: {
+    type: 'string[]'
   }
 };

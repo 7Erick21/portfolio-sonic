@@ -9,6 +9,7 @@ import * as recommendations from './recommendations';
 import * as experiences from './experiences';
 import * as socialNetworks from './socialNetworks';
 import * as educations from './educations';
+import * as groupTechnologies from './groupTechnologies';
 
 export const tableName = 'languages';
 
@@ -31,6 +32,7 @@ export const relation = relations(table, ({ many }) => ({
   navbar: many(navbar.table),
   experiences: many(experiences.table),
   recommendations: many(recommendations.table),
+  groupTechnologies: many(groupTechnologies.table),
   socialNetworks: many(socialNetworks.table)
 }));
 
