@@ -17,6 +17,8 @@ export const definition = {
   email: text('email'),
   rol: text('rol'),
   birthdate: text('birthdate'),
+  location: text('location'),
+  googleMaps: text('googleMaps'),
   phone: text('phone'),
   code: text('code')
 };
@@ -26,12 +28,7 @@ export const table = sqliteTable(tableName, {
   ...auditSchema
 });
 
-export const relation = relations(table, ({ one }) => ({
-  language: one(languages.table, {
-    fields: [table.code],
-    references: [languages.table.code]
-  })
-}));
+export const relation = relations(table, ({}) => ({}));
 
 export const access: ApiConfig['access'] = {
   operation: {
@@ -47,5 +44,17 @@ export const hooks: ApiConfig['hooks'] = {};
 export const fields: ApiConfig['fields'] = {
   description: {
     type: 'string[]'
+  },
+  email: {
+    type: 'quill'
+  },
+  birthdate: {
+    type: 'quill'
+  },
+  location: {
+    type: 'quill'
+  },
+  phone: {
+    type: 'quill'
   }
 };

@@ -13,7 +13,6 @@ export const definition = {
   id: text('id').primaryKey(),
   name: text('name'),
   icon: text('icon'),
-  code: text('code'),
   link: text('link')
 };
 
@@ -22,12 +21,7 @@ export const table = sqliteTable(tableName, {
   ...auditSchema
 });
 
-export const relation = relations(table, ({ one }) => ({
-  language: one(languages.table, {
-    fields: [table.code],
-    references: [languages.table.code]
-  })
-}));
+export const relation = relations(table, ({}) => ({}));
 
 export const access: ApiConfig['access'] = {
   operation: {

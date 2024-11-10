@@ -6,6 +6,8 @@ CREATE TABLE `about` (
 	`email` text,
 	`rol` text,
 	`birthdate` text,
+	`location` text,
+	`googleMaps` text,
 	`phone` text,
 	`code` text,
 	`createdOn` integer,
@@ -68,7 +70,6 @@ CREATE TABLE `groupTechnologies` (
 	`id` text PRIMARY KEY NOT NULL,
 	`name` text,
 	`technologies` text,
-	`code` text,
 	`createdOn` integer,
 	`updatedOn` integer
 );
@@ -131,7 +132,6 @@ CREATE TABLE `socialNetworks` (
 	`id` text PRIMARY KEY NOT NULL,
 	`name` text,
 	`icon` text,
-	`code` text,
 	`link` text,
 	`createdOn` integer,
 	`updatedOn` integer

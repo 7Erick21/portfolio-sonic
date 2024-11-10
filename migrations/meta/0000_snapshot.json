@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "sqlite",
-  "id": "3e227f4e-25f6-4da5-ad5e-c50a528c24ed",
+  "id": "26f11ccb-d82d-4e34-b1c1-1ab33c35f7ee",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "about": {
@@ -51,6 +51,20 @@
         },
         "birthdate": {
           "name": "birthdate",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "location": {
+          "name": "location",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "googleMaps": {
+          "name": "googleMaps",
           "type": "text",
           "primaryKey": false,
           "notNull": false,
@@ -447,13 +461,6 @@
           "notNull": false,
           "autoincrement": false
         },
-        "code": {
-          "name": "code",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
-        },
         "createdOn": {
           "name": "createdOn",
           "type": "integer",
@@ -819,13 +826,6 @@
         },
         "icon": {
           "name": "icon",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
-        },
-        "code": {
-          "name": "code",
           "type": "text",
           "primaryKey": false,
           "notNull": false,
