@@ -12,7 +12,8 @@ export const definition = {
   id: text('id').primaryKey(),
   label: text('label'),
   value: text('value'),
-  icon: text('icon')
+  icon: text('icon'),
+  code: text('code')
 };
 
 export const table = sqliteTable(tableName, {
