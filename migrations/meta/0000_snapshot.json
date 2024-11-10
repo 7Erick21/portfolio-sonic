@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "sqlite",
-  "id": "894310e8-aa26-47fb-b0af-a97745b5a7b4",
+  "id": "fe68b498-2dcd-4d18-843b-451459c7355a",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "about": {
@@ -479,6 +479,13 @@
         },
         "icon": {
           "name": "icon",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "code": {
+          "name": "code",
           "type": "text",
           "primaryKey": false,
           "notNull": false,

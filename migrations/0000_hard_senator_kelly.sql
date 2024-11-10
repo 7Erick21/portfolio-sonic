@@ -75,6 +75,7 @@ CREATE TABLE `information` (
 	`label` text,
 	`value` text,
 	`icon` text,
+	`code` text,
 	`createdOn` integer,
 	`updatedOn` integer
 );
