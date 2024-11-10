@@ -3,12 +3,8 @@ CREATE TABLE `about` (
 	`label` text,
 	`description` text,
 	`name` text,
-	`email` text,
 	`rol` text,
-	`birthdate` text,
-	`location` text,
 	`googleMaps` text,
-	`phone` text,
 	`code` text,
 	`createdOn` integer,
 	`updatedOn` integer
@@ -70,6 +66,15 @@ CREATE TABLE `groupTechnologies` (
 	`id` text PRIMARY KEY NOT NULL,
 	`name` text,
 	`technologies` text,
+	`createdOn` integer,
+	`updatedOn` integer
+);
+--> statement-breakpoint
+CREATE TABLE `information` (
+	`id` text PRIMARY KEY NOT NULL,
+	`label` text,
+	`value` text,
+	`icon` text,
 	`createdOn` integer,
 	`updatedOn` integer
 );

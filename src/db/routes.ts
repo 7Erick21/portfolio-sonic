@@ -11,6 +11,7 @@ import * as recommendations from './schema/recommendations';
 import * as navbar from './schema/navbar';
 import * as technologies from './schema/technologies';
 import * as socialNetworks from './schema/socialNetworks';
+import * as information from './schema/information';
 
 import { AppContext } from '../server';
 import { isAdminOrEditor } from './config-helpers';
@@ -203,6 +204,7 @@ export const tableSchemas = {
   // categories,
   // categoriesToPosts,
   users,
+  information,
   userKeys,
   userSessions,
   languages,

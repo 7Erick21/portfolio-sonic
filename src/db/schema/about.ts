@@ -14,12 +14,16 @@ export const definition = {
   label: text('label'),
   description: text('description', { mode: 'json' }).$type<string[]>(),
   name: text('name'),
-  email: text('email'),
+  // email: text('email'),
+  // emailLabel: text('emailLabel'),
   rol: text('rol'),
-  birthdate: text('birthdate'),
-  location: text('location'),
+  // birthdate: text('birthdate'),
+  // birthdateLabel: text('birthdateLabel'),
+  // location: text('location'),
+  // locationLabel: text('locationLabel'),
   googleMaps: text('googleMaps'),
-  phone: text('phone'),
+  // phone: text('phone'),
+  // phoneLabel: text('phoneLabel'),
   code: text('code')
 };
 
@@ -44,17 +48,5 @@ export const hooks: ApiConfig['hooks'] = {};
 export const fields: ApiConfig['fields'] = {
   description: {
     type: 'string[]'
-  },
-  email: {
-    type: 'quill'
-  },
-  birthdate: {
-    type: 'quill'
-  },
-  location: {
-    type: 'quill'
-  },
-  phone: {
-    type: 'quill'
   }
 };
